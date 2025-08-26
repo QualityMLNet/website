@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality ML Framework - Enterprise Ready Agentic AI-Powered Software Quality Testing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e'
+                        },
+                        accent: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a'
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 2px 15px 0 rgba(0, 0, 0, 0.08)',
+                        'medium': '0 4px 25px 0 rgba(0, 0, 0, 0.12)',
+                        'strong': '0 8px 40px 0 rgba(0, 0, 0, 0.16)'
+                    },
+                    borderRadius: {
+                        'xl': '1rem',
+                        '2xl': '1.25rem',
+                        '3xl': '1.5rem'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .gradient-primary {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+        }
+        
+        .gradient-secondary {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.3);
+        }
+        
+        .section-divider {
+            background: linear-gradient(90deg, transparent 0%, #e2e8f0 50%, transparent 100%);
+            height: 1px;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-slate-200/60 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">AI</span>
+                    </div>
+                    <span class="text-xl font-bold text-slate-900">QA Framework</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-slate-600 hover:text-primary-600 transition-colors">Features</a>
+                    <a href="#pricing" class="text-slate-600 hover:text-primary-600 transition-colors">Pricing</a>
+                    <a href="#enterprise" class="text-slate-600 hover:text-primary-600 transition-colors">Enterprise</a>
+                    <button class="btn-primary text-white px-6 py-2 rounded-xl font-medium">
+                        Get Started
+                    </button>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button class="md:hidden p-2 text-slate-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-white to-primary-50/30">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center rounded-full bg-primary-50 px-4 py-2 text-sm font-medium text-primary-700 mb-6 border border-primary-100">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                    Intelligent AI Testing
+                </div>
+                
+                <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+                    Enterprise AI QA 
+                    <span class="text-gradient">Automation</span>
+                </h1>
+                
+                <p class="text-xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Transform your software testing with AI-powered automation. Generate comprehensive test suites, 
+                    catch bugs before production, and accelerate releases with predictable CAPEX infrastructure.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                    <button class="btn-primary text-white px-8 py-4 rounded-2xl font-semibold text-lg inline-flex items-center">
+                        Discovery Call
+                        <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </button>
+                    <button class="bg-white text-slate-700 px-8 py-4 rounded-2xl font-semibold text-lg border border-slate-200 hover:border-slate-300 transition-colors inline-flex items-center">
+                        <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1a3 3 0 000-6h-1m0 6h1a3 3 0 000-6h-1m4-2v6"/>
+                        </svg>
+                        View Demo
+                    </button>
+                </div>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/40 shadow-soft">
+                        <div class="text-3xl font-bold text-primary-600 mb-2">85%</div>
+                        <div class="text-sm font-medium text-slate-600">Cost Reduction</div>
+                    </div>
+                    <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/40 shadow-soft">
+                        <div class="text-3xl font-bold text-primary-600 mb-2">30x</div>
+                        <div class="text-sm font-medium text-slate-600">Productivity Gain</div>
+                    </div>
+                    <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/40 shadow-soft">
+                        <div class="text-3xl font-bold text-primary-600 mb-2">95%</div>
+                        <div class="text-sm font-medium text-slate-600">Bug Detection</div>
+                    </div>
+                    <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/40 shadow-soft">
+                        <div class="text-3xl font-bold text-primary-600 mb-2">3 Mo</div>
+                        <div class="text-sm font-medium text-slate-600">ROI Timeline</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enterprise AI Workflow Architecture Section -->
+    <section id="security" class="py-20 bg-slate-100">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-flex items-center rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800 mb-4">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                        <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                    </svg>
+                    Technical Architecture
+                </span>
+                <h2 class="text-4xl font-bold mb-4 text-slate-900">Agentic AI Workflow Architecture</h2>
+                <p class="text-xl text-slate-600 max-w-4xl mx-auto">
+                    Enterprise-grade test automation orchestrated through Model Context Protocol (MCP) with 
+                    multi-agent AI system, Computer Controller for legacy apps, and FDAP analytics stack
+                </p>
+            </div>
+            
+            <!-- Main Workflow Diagram -->
+            <div class="bg-white rounded-3xl p-8 mb-12 shadow-strong border">
+                <div class="bg-slate-50 rounded-2xl p-6">
+                    <!-- Workflow Steps -->
+                    <div class="space-y-8">
+                        <!-- Step 1: Input Sources & Integration Layer -->
+                        <div class="flex items-center space-x-6">
+                            <div class="flex-shrink-0">
+                                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <span class="text-white text-2xl font-bold">1</span>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-slate-900 text-xl font-semibold mb-2">Multi-Source Data Ingestion & Context Extraction</h3>
+                                <div class="grid md:grid-cols-4 gap-3">
+                                    <div class="bg-blue-50 rounded-lg p-3 border border-blue-200">
+                                        <div class="text-blue-700 font-semibold mb-1">JIRA Integration</div>
+                                        <div class="text-xs text-slate-600">Stories, criteria, sprints</div>
+                                        <div class="text-xs text-blue-600 mt-1">REST API + Webhooks</div>
+                                    </div>
+                                    <div class="bg-blue-50 rounded-lg p-3 border border-blue-200">
+                                        <div class="text-blue-700 font-semibold mb-1">Visual Context</div>
+                                        <div class="text-xs text-slate-600">Screenshots, UI mockups</div>
+                                        <div class="text-xs text-blue-600 mt-1">Gemma3 Text+Image</div>
+                                    </div>
+                                    <div class="bg-blue-50 rounded-lg p-3 border border-blue-200">
+                                        <div class="text-blue-700 font-semibold mb-1">Domain Context</div>
+                                        <div class="text-xs text-slate-600">Docs, APIs, business rules</div>
+                                        <div class="text-xs text-blue-600 mt-1">128K context window</div>
+                                    </div>
+                                    <div class="bg-blue-50 rounded-lg p-3 border border-blue-200">
+                                        <div class="text-blue-700 font-semibold mb-1">Legacy Apps</div>
+                                        <div class="text-xs text-slate-600">Desktop applications</div>
+                                        <div class="text-xs text-blue-600 mt-1">Computer Controller</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Arrow Down with Processing Note -->
+                        <div class="flex justify-center items-center space-x-4">
+                            <div class="text-xs text-slate-600">Parallel Processing</div>
+                            <svg class="w-8 h-8 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                            </svg>
+                            <div class="text-xs text-slate-600">Event Streaming</div>
+                        </div>
+                        
+                        <!-- Step 2: MCP Agent Orchestration -->
+                        <div class="flex items-center space-x-6">
+                            <div class="flex-shrink-0">
+                                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <span class="text-white text-2xl font-bold">2</span>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-slate-900 text-xl font-semibold mb-2">MCP Agent Orchestration Layer</h3>
+                                <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                                    <div class="grid md:grid-cols-4 gap-3">
+                                        <div class="text-center">
+                                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="text-xs text-blue-700">Context Agent</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="text-xs text-blue-700">Visual Agent</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="text-xs text-blue-700">Generation Agent</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="text-xs text-blue-700">Quality Agent</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center mt-3 text-xs text-blue-700">
+                                        Native MCP Server with SSE/HTTP streaming for real-time agent communication
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Arrow Down with Processing Note -->
+                        <div class="flex justify-center items-center space-x-4">
+                            <div class="text-xs text-slate-600">Parallel Processing</div>
+                            <svg class="w-8 h-8 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                            </svg>
+                            <div class="text-xs text-slate-600">Event Streaming</div>
+                        </div>
+                        
+                        <!-- Step 3: AI Processing Pipeline -->
+                        <div class="flex items-center space-x-6">
+                            <div class="flex-shrink-0">
+                                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <span class="text-white text-2xl font-bold">3</span>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-slate-900 text-xl font-semibold mb-2">AI Processing Pipeline</h3>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                                        <div class="flex items-center space-x-3 mb-3">
+                                            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                                                <span class="text-white text-xs font-bold">LLM</span>
+                                            </div>
+                                            <div>
+                                                <div class="text-blue-700 font-semibold">Gemma3 Models</div>
+                                                <div class="text-xs text-slate-600">Text+Image, 128K context</div>
+                                            </div>
+                                        </div>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center space-x-2">
+                                                <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                                <span class="text-xs text-slate-700">Visual UI Analysis</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                                <span class="text-xs text-slate-700">Test Scenario Generation</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                                <span class="text-xs text-slate-700">Domain Context Enrichment</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                                        <div class="flex items-center space-x-3 mb-3">
+                                            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                                                <span class="text-white text-xs font-bold">LoRA</span>
+                                            </div>
+                                            <div>
+                                                <div class="text-blue-700 font-semibold">Domain Adapters</div>
+                                                <div class="text-xs text-slate-600">Industry-specific fine-tuning</div>
+                                            </div>
+                                        </div>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center space-x-2">
+                                                <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                                <span class="text-xs text-slate-700">Financial Services</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                                <span class="text-xs text-slate-700">Healthcare/HIPAA</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                                <span class="text-xs text-slate-700">Manufacturing/IoT</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Arrow Down with Processing Note -->
+                        <div class="flex justify-center items-center space-x-4">
+                            <div class="text-xs text-slate-600">Parallel Processing</div>
+                            <svg class="w-8 h-8 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                            </svg>
+                            <div class="text-xs text-slate-600">Event Streaming</div>
+                        </div>
+                        
+                        <!-- Step 4: Test Generation & Classification -->
+                        <div class="flex items-center space-x-6">
+                            <div class="flex-shrink-0">
+                                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <span class="text-white text-2xl font-bold">4</span>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-slate-900 text-xl font-semibold mb-2">Intelligent Test Generation & Classification</h3>
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                                        <div class="text-blue-700 font-semibold mb-2">Test Types Generated</div>
+                                        <div class="space-y-1">
+                                            <div class="text-xs text-slate-700">• Functional Tests</div>
+                                            <div class="text-xs text-slate-700">• Visual Regression</div>
+                                            <div class="text-xs text-slate-700">• Performance Tests</div>
+                                            <div class="text-xs text-slate-700">• Security Tests</div>
+                                            <div class="text-xs text-slate-700">• Accessibility Tests</div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                                        <div class="text-blue-700 font-semibold mb-2">AI Classification</div>
+                                        <div class="space-y-1">
+                                            <div class="text-xs text-slate-700">• Automation Feasibility</div>
+                                            <div class="text-xs text-slate-700">• Priority Scoring</div>
+                                            <div class="text-xs text-slate-700">• Risk Assessment</div>
+                                            <div class="text-xs text-slate-700">• Effort Estimation</div>
+                                            <div class="text-xs text-slate-700">• Coverage Analysis</div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                                        <div class="text-blue-700 font-semibold mb-2">Code Generation</div>
+                                        <div class="space-y-1">
+                                            <div class="text-xs text-slate-700">• Pytest/Unittest</div>
+                                            <div class="text-xs text-slate-700">• Selenium WebDriver</div>
+                                            <div class="text-xs text-slate-700">• PyAutoGUI Desktop</div>
+                                            <div class="text-xs text-slate-700">• API Test Scripts</div>
+                                            <div class="text-xs text-slate-700">• BDD Scenarios</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Arrow Down with Processing Note -->
+                        <div class="flex justify-center items-center space-x-4">
+                            <div class="text-xs text-slate-600">Parallel Processing</div>
+                            <svg class="w-8 h-8 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                            </svg>
+                            <div class="text-xs text-slate-600">Event Streaming</div>
+                        </div>
+                        
+                        <!-- Step 5: Execution & Analytics -->
+                        <div class="flex items-center space-x-6">
+                            <div class="flex-shrink-0">
+                                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <span class="text-white text-2xl font-bold">5</span>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-slate-900 text-xl font-semibold mb-2">Execution, Analytics & Continuous Improvement</h3>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                                        <div class="flex items-center space-x-3 mb-3">
+                                            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <div class="text-blue-700 font-semibold">Computer Controller</div>
+                                                <div class="text-xs text-slate-600">Desktop & Legacy Apps</div>
+                                            </div>
+                                        </div>
+                                        <div class="space-y-2">
+                                            <div class="text-xs text-slate-700">• Cross-platform execution</div>
+                                            <div class="text-xs text-slate-700">• Visual validation</div>
+                                            <div class="text-xs text-slate-700">• Screenshot analysis</div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                                        <div class="flex items-center space-x-3 mb-3">
+                                            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <div class="text-blue-700 font-semibold">FDAP Analytics</div>
+                                                <div class="text-xs text-slate-600">Real-time insights</div>
+                                            </div>
+                                        </div>
+                                        <div class="space-y-2">
+                                            <div class="text-xs text-slate-700">• DuckDB + Arrow processing</div>
+                                            <div class="text-xs text-slate-700">• Quality metrics tracking</div>
+                                            <div class="text-xs text-slate-700">• Predictive analytics</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-4 bg-gradient-to-r from-purple-100 to-blue-100 rounded-lg p-4 border border-purple-300">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
+                                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <div class="text-purple-800 font-semibold">True RL with RLHF Enhancement</div>
+                                                <div class="text-xs text-slate-700">Actual rewards from test outcomes + human feedback refinement</div>
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="text-2xl font-bold text-purple-600">RL</div>
+                                            <div class="text-xs text-slate-700">AlphaGo-style</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Key Integration Points -->
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-6 shadow-strong border border-blue-200">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3 text-slate-900">CI/CD Integration</h3>
+                    <p class="text-sm text-slate-600 mb-4">
+                        Seamless integration with Jenkins, GitHub Actions, GitLab CI, and Azure DevOps pipelines
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="text-xs">Automated test triggering</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="text-xs">Quality gates enforcement</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="text-xs">Real-time result reporting</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-6 shadow-strong border border-blue-200">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3 text-slate-900">Onsite GPU Processing</h3>
+                    <p class="text-sm text-slate-600 mb-4">
+                        Local AI processing on NVIDIA, AMD, and Apple MLX hardware for complete data privacy
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="text-xs">Zero token costs</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="text-xs">Unlimited processing</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="text-xs">Data sovereignty</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-6 shadow-strong border border-blue-200">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3 text-slate-900">Real-Time Analytics</h3>
+                    <p class="text-sm text-slate-600 mb-4">
+                        FDAP stack delivers sub-second query performance on billions of test results
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="text-xs">Live quality dashboards</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="text-xs">Predictive insights</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="text-xs">ROI tracking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- True Reinforcement Learning Section -->
+    <section class="py-20 bg-gradient-to-br from-purple-50 to-blue-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-flex items-center rounded-full bg-purple-100 px-4 py-2 text-sm font-medium text-purple-800 mb-4">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    Beyond RLHF - True Reinforcement Learning
+                </span>
+                <h2 class="text-4xl font-bold mb-4 text-slate-900">AlphaGo-Style RL for QA Optimization</h2>
+                <p class="text-xl text-slate-600 max-w-4xl mx-auto">
+                    While most AI systems rely on RLHF (just a "vibe check"), our platform implements true reinforcement learning 
+                    with actual reward signals from test outcomes—the same approach that enabled AlphaGo to beat world champions.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 mb-16">
+                <!-- Traditional RLHF Limitations -->
+                <div class="bg-white rounded-2xl p-8 shadow-soft border border-red-100">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900">Traditional RLHF Limitations</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-red-50 rounded-lg">
+                            <h4 class="font-semibold text-red-800 mb-2">❌ "Vibe Check" Problem</h4>
+                            <p class="text-sm text-slate-600">RLHF relies on human labelers selecting what "looks good" rather than what actually works—a proxy objective that doesn't measure real success.</p>
+                        </div>
+                        <div class="p-4 bg-red-50 rounded-lg">
+                            <h4 class="font-semibold text-red-800 mb-2">❌ Reward Model Gaming</h4>
+                            <p class="text-sm text-slate-600">Systems quickly learn to exploit the reward model with adversarial examples that score high but produce nonsensical outputs.</p>
+                        </div>
+                        <div class="p-4 bg-red-50 rounded-lg">
+                            <h4 class="font-semibold text-red-800 mb-2">❌ Limited Optimization</h4>
+                            <p class="text-sm text-slate-600">Can only run for a few hundred steps before the model starts gaming the system—not true RL like AlphaGo.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Our True RL Approach -->
+                <div class="bg-white rounded-2xl p-8 shadow-soft border border-green-100">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900">Our True RL Implementation</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-green-50 rounded-lg">
+                            <h4 class="font-semibold text-green-800 mb-2">✅ Actual Reward Signals</h4>
+                            <p class="text-sm text-slate-600">Tests either pass or fail, bugs are found or missed—concrete, measurable outcomes that provide true reward signals, not subjective preferences.</p>
+                        </div>
+                        <div class="p-4 bg-green-50 rounded-lg">
+                            <h4 class="font-semibold text-green-800 mb-2">✅ Objective Success Metrics</h4>
+                            <p class="text-sm text-slate-600">Code coverage, bug detection rates, false positive ratios—quantifiable metrics that can't be gamed like a "vibe check" reward model.</p>
+                        </div>
+                        <div class="p-4 bg-green-50 rounded-lg">
+                            <h4 class="font-semibold text-green-800 mb-2">✅ Continuous Deep Optimization</h4>
+                            <p class="text-sm text-slate-600">Can run unlimited optimization steps because we're optimizing against real outcomes, enabling AlphaGo-level mastery in test generation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- How It Works -->
+            <div class="bg-white rounded-2xl p-8 shadow-strong border border-slate-200">
+                <h3 class="text-2xl font-bold text-center mb-8 text-slate-900">How Our True RL Pipeline Works</h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-purple-600">1</span>
+                        </div>
+                        <h4 class="font-semibold mb-2">Generate Tests</h4>
+                        <p class="text-sm text-slate-600">AI agents create comprehensive test suites based on code analysis</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-purple-600">2</span>
+                        </div>
+                        <h4 class="font-semibold mb-2">Execute & Measure</h4>
+                        <p class="text-sm text-slate-600">Run tests and collect actual outcomes: pass/fail, coverage, performance</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-purple-600">3</span>
+                        </div>
+                        <h4 class="font-semibold mb-2">Calculate True Rewards</h4>
+                        <p class="text-sm text-slate-600">Reward based on bugs caught, coverage achieved, and false positive rates</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-purple-600">4</span>
+                        </div>
+                        <h4 class="font-semibold mb-2">Optimize Strategy</h4>
+                        <p class="text-sm text-slate-600">Update test generation strategy based on actual results, not preferences</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8 p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2">The Result: Production-Grade RL at Scale</h4>
+                            <p class="text-sm text-slate-600">
+                                Unlike RLHF systems that plateau quickly, our true RL continuously improves, 
+                                learning optimal test strategies from millions of real test executions—achieving 
+                                the QA equivalent of AlphaGo's dominance in Go.
+                            </p>
+                        </div>
+                        <div class="text-center ml-6">
+                            <div class="text-3xl font-bold text-purple-600">∞</div>
+                            <div class="text-xs text-slate-700">Unlimited<br/>Optimization</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-20 bg-red-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 text-slate-900">The Software Quality Testing Crisis in Enterprises</h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                    Traditional testing approaches are failing to keep pace with modern development cycles, creating bottlenecks that cost enterprises millions in delays, bugs, and technical debt.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-soft border border-red-100">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Manual Testing Bottlenecks</h3>
+                    <p class="text-slate-600 mb-4">
+                        Traditional manual testing creates significant delays in release cycles, with QA teams becoming the bottleneck in fast-moving development environments.
+                    </p>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>6-8 week testing cycles</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>Limited test coverage</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>Human error and inconsistency</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>High labor costs</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-soft border border-red-100">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Legacy Application Challenges</h3>
+                    <p class="text-slate-600 mb-4">
+                        Many enterprises run critical business applications on legacy systems that are difficult to test with modern automation tools.
+                    </p>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>Lack of API access</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>Complex desktop interfaces</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>Outdated testing frameworks</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>Technical debt accumulation</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-soft border border-red-100">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Unpredictable Cloud Costs</h3>
+                    <p class="text-slate-600 mb-4">
+                        Cloud-based testing services with token-based pricing create unpredictable costs that can spiral out of control during intensive testing periods.
+                    </p>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>$50K-$500K+ monthly bills</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>Usage spikes during releases</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>Rate limiting during peak times</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>Data security concerns</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-20 bg-green-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 text-slate-900">The Power of Agentic AI in Software Quality Testing</h2>
+                <p class="text-xl text-slate-600 max-w-4xl mx-auto">
+                    Our agentic AI system transforms software testing by deploying autonomous agents that understand context, learn from patterns, and continuously improve testing strategies—all while maintaining complete data sovereignty with on-premise GPU infrastructure.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6">Autonomous Intelligence</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-slate-900 mb-2">Context-Aware Test Generation</h4>
+                                <p class="text-slate-600">AI agents analyze your codebase, business requirements, and user stories to generate comprehensive test suites that understand your domain.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-slate-900 mb-2">Self-Improving Systems</h4>
+                                <p class="text-slate-600">Agents continuously learn from test results, failed scenarios, and production issues to improve testing strategies and coverage over time.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-slate-900 mb-2">Visual Understanding</h4>
+                                <p class="text-slate-600">Advanced computer vision capabilities enable testing of legacy applications, complex UIs, and visual regressions without API access.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-strong border border-slate-200">
+                    <h4 class="text-lg font-semibold text-slate-900 mb-6">Supported Testing Types</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center p-4 bg-green-50 rounded-lg">
+                            <div class="text-2xl mb-2">🧪</div>
+                            <div class="text-sm font-medium">Unit Testing</div>
+                        </div>
+                        <div class="text-center p-4 bg-green-50 rounded-lg">
+                            <div class="text-2xl mb-2">🔗</div>
+                            <div class="text-sm font-medium">Integration Testing</div>
+                        </div>
+                        <div class="text-center p-4 bg-green-50 rounded-lg">
+                            <div class="text-2xl mb-2">🎯</div>
+                            <div class="text-sm font-medium">API Testing</div>
+                        </div>
+                        <div class="text-center p-4 bg-green-50 rounded-lg">
+                            <div class="text-2xl mb-2">👁️</div>
+                            <div class="text-sm font-medium">Visual Testing</div>
+                        </div>
+                        <div class="text-center p-4 bg-green-50 rounded-lg">
+                            <div class="text-2xl mb-2">📱</div>
+                            <div class="text-sm font-medium">UI/UX Testing</div>
+                        </div>
+                        <div class="text-center p-4 bg-green-50 rounded-lg">
+                            <div class="text-2xl mb-2">⚡</div>
+                            <div class="text-sm font-medium">Performance Testing</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Framework Capabilities Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 text-slate-900">Framework Capabilities</h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                    Comprehensive testing capabilities powered by AI agents with deep learning and continuous improvement.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                <div class="bg-slate-50 rounded-2xl p-8 card-hover">
+                    <div class="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Intelligent Test Generation</h3>
+                    <p class="text-slate-600 mb-6">
+                        AI agents analyze your codebase, requirements, and user flows to generate comprehensive test suites automatically.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Code analysis & pattern recognition
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Business logic understanding
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Edge case identification
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-slate-50 rounded-2xl p-8 card-hover">
+                    <div class="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Legacy Application Testing</h3>
+                    <p class="text-slate-600 mb-6">
+                        Computer vision and UI automation capabilities enable testing of legacy applications without API access.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Desktop application automation
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Visual element recognition
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Screen interaction simulation
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-slate-50 rounded-2xl p-8 card-hover">
+                    <div class="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Real-time Analytics</h3>
+                    <p class="text-slate-600 mb-6">
+                        Comprehensive dashboards and reporting provide insights into test coverage, performance, and quality trends.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Test coverage metrics
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Performance benchmarking
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            ROI tracking
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Complete Cost Analysis Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center rounded-full bg-green-50 px-4 py-2 text-sm font-medium text-green-700 mb-4 border border-green-100">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"/>
+                    </svg>
+                    Cost Analysis & ROI
+                </div>
+                <h2 class="text-4xl font-bold text-slate-900 mb-6">Complete Cost Analysis: CAPEX vs OPEX Model</h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                    See exactly how much you can save by switching from unpredictable cloud costs to predictable on-premise infrastructure.
+                </p>
+            </div>
+            
+            <!-- Consolidated Cost Savings Analysis -->
+            <div class="bg-white rounded-3xl p-8 shadow-strong border border-slate-100">
+                <!-- Cost Comparison Grid -->
+                <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                    <div class="border-2 border-red-100 rounded-2xl p-8 bg-red-50/50">
+                        <h4 class="text-2xl font-bold text-red-700 mb-6 flex items-center">
+                            <span class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-3">❌</span>
+                            Traditional Approach (OPEX Model)
+                        </h4>
+                        
+                        <div class="space-y-6 mb-6">
+                            <div>
+                                <div class="font-semibold text-red-600 mb-3">Cloud AI Token Costs:</div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center py-2 px-3 bg-white/60 rounded-lg">
+                                        <span class="text-slate-700">GPT-4 API Costs (1M tests/year)</span>
+                                        <span class="font-bold text-red-600">$840,000/yr</span>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2 px-3 bg-white/60 rounded-lg">
+                                        <span class="text-slate-700">Unpredictable usage spikes</span>
+                                        <span class="font-bold text-red-600">+30-50%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2 px-3 bg-white/60 rounded-lg">
+                                        <span class="text-slate-700">Data egress & transfer fees</span>
+                                        <span class="font-bold text-red-600">$60,000/yr</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="font-semibold text-red-600 mb-3">Traditional QA Costs:</div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center py-2 px-3 bg-white/60 rounded-lg">
+                                        <span class="text-slate-700">Manual QA Team (10 FTE)</span>
+                                        <span class="font-bold text-red-600">$1,200,000/yr</span>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2 px-3 bg-white/60 rounded-lg">
+                                        <span class="text-slate-700">QA Tools & Infrastructure</span>
+                                        <span class="font-bold text-red-600">$200,000/yr</span>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2 px-3 bg-white/60 rounded-lg">
+                                        <span class="text-slate-700">Delayed Release Costs</span>
+                                        <span class="font-bold text-red-600">$800,000/yr</span>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2 px-3 bg-white/60 rounded-lg">
+                                        <span class="text-slate-700">Production Bug Fixes</span>
+                                        <span class="font-bold text-red-600">$450,000/yr</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t-2 border-red-200 pt-4">
+                            <div class="flex justify-between items-center text-xl font-bold mb-2">
+                                <span class="text-slate-800">Total Annual Cost</span>
+                                <span class="text-red-700">$2,800,000</span>
+                            </div>
+                            <div class="flex justify-between items-center text-lg font-semibold">
+                                <span class="text-slate-600">3-Year Total Cost</span>
+                                <span class="text-red-700">$8,400,000+</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-2 border-green-100 rounded-2xl p-8 bg-green-50/50">
+                        <h4 class="text-2xl font-bold text-green-700 mb-6 flex items-center">
+                            <span class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">✅</span>
+                            Quality ML Framework (CAPEX Model)
+                        </h4>
+                        
+                        <div class="space-y-6 mb-6">
+                            <div>
+                                <div class="font-semibold text-green-600 mb-3">One-Time Investment:</div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center py-2 px-3 bg-white/60 rounded-lg">
+                                        <span class="text-slate-700">GPU Infrastructure (H100/A100)</span>
+                                        <span class="font-bold text-green-600">$400,000</span>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2 px-3 bg-white/60 rounded-lg">
+                                        <span class="text-slate-700">Platform License & Support</span>
+                                        <span class="font-bold text-green-600">$120,000/yr</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="font-semibold text-green-600 mb-3">Ongoing Annual Costs:</div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center py-2 px-3 bg-white/60 rounded-lg">
+                                        <span class="text-slate-700">Reduced QA Team (3 FTE)</span>
+                                        <span class="font-bold text-green-600">$360,000/yr</span>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2 px-3 bg-white/60 rounded-lg">
+                                        <span class="text-slate-700">Power & Maintenance</span>
+                                        <span class="font-bold text-green-600">$30,000/yr</span>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2 px-3 bg-white/60 rounded-lg">
+                                        <span class="text-slate-700">Token Costs</span>
+                                        <span class="font-bold text-green-600">$0/yr</span>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2 px-3 bg-white/60 rounded-lg">
+                                        <span class="text-slate-700">Unlimited test generation</span>
+                                        <span class="font-bold text-green-600">$0/test</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t-2 border-green-200 pt-4">
+                            <div class="flex justify-between items-center text-xl font-bold mb-2">
+                                <span class="text-slate-800">Year 1 Total Cost</span>
+                                <span class="text-green-700">$910,000</span>
+                            </div>
+                            <div class="flex justify-between items-center text-lg font-semibold">
+                                <span class="text-slate-600">Year 2+ Annual Cost</span>
+                                <span class="text-green-700">$510,000/yr</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Advantages Comparison -->
+                <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                        <h4 class="font-bold text-red-600 mb-4 text-lg">❌ OPEX Model Drawbacks:</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span class="text-slate-600">Unpredictable monthly bills ($50K - $500K+)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span class="text-slate-600">Per-token pricing adds up quickly</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span class="text-slate-600">Cost spikes during heavy testing periods</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span class="text-slate-600">Rate limiting affects productivity</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span class="text-slate-600">Data leaves your infrastructure</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span class="text-slate-600">Vendor lock-in concerns</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="p-6 bg-green-50 rounded-2xl border border-green-200">
+                        <h4 class="font-bold text-green-600 mb-4 text-lg">✅ CAPEX Model Benefits:</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span class="text-slate-600">Fixed one-time investment ($200K - $500K)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span class="text-slate-600">Zero per-token costs forever</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span class="text-slate-600">Consistent performance regardless of usage</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span class="text-slate-600">No rate limits or throttling</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span class="text-slate-600">Complete data sovereignty</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span class="text-slate-600">Full control and customization</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ROI Summary -->
+                <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 border border-green-100">
+                    <div class="text-center mb-6">
+                        <div class="text-4xl font-bold text-green-700 mb-2">$1,890,000 First Year Savings</div>
+                        <div class="text-xl text-green-700 mb-2">68% Cost Reduction • 208% ROI</div>
+                        <div class="text-lg text-green-600 mb-2">$2,290,000 Annual Savings from Year 2</div>
+                        <div class="text-base text-green-700 mb-6">82% Cost Reduction after CAPEX amortization</div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white rounded-xl p-6 shadow-soft text-center">
+                            <div class="text-2xl font-bold text-green-600 mb-1">Break-even</div>
+                            <div class="text-sm text-green-800">3-6 months</div>
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-soft text-center">
+                            <div class="text-2xl font-bold text-green-600 mb-1">3-Year TCO</div>
+                            <div class="text-sm text-green-800">82% Lower</div>
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-soft text-center">
+                            <div class="text-2xl font-bold text-green-600 mb-1">Total Savings</div>
+                            <div class="text-sm text-green-800">$6.5M over 3 years</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enterprise Service Section -->
+    <section id="enterprise" class="py-20 bg-gradient-secondary">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 mb-4 border border-blue-100">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Enterprise-Grade Service
+                </div>
+                <h2 class="text-4xl font-bold text-slate-900 mb-6">Complete Enterprise Integration Service</h2>
+                <p class="text-xl text-slate-600 max-w-4xl mx-auto">
+                    Beyond just a framework - we deliver a fully managed enterprise service with expert integration 
+                    into your existing CI/CD workflow systems. Backed by industry-leading SLAs and dedicated support.
+                </p>
+            </div>
+            
+            <!-- Service Offerings Grid -->
+            <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white rounded-2xl p-8 shadow-strong border border-slate-100 card-hover">
+                    <div class="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">CI/CD Pipeline Integration</h3>
+                    <p class="text-slate-600 mb-6">
+                        Seamless integration with Jenkins, GitHub Actions, GitLab CI, Azure DevOps, and other popular CI/CD platforms.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-slate-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Automated test generation on commits
+                        </li>
+                        <li class="flex items-center text-sm text-slate-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Real-time feedback loops
+                        </li>
+                        <li class="flex items-center text-sm text-slate-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Parallel test execution
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-strong border border-slate-100 card-hover">
+                    <div class="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Analytics & Reporting</h3>
+                    <p class="text-slate-600 mb-6">
+                        Comprehensive dashboards and reporting tools to track test coverage, performance metrics, and ROI.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-slate-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Real-time testing metrics
+                        </li>
+                        <li class="flex items-center text-sm text-slate-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Executive reporting
+                        </li>
+                        <li class="flex items-center text-sm text-slate-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Cost savings tracking
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-strong border border-slate-100 card-hover">
+                    <div class="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">24/7 Support & SLA</h3>
+                    <p class="text-slate-600 mb-6">
+                        Enterprise-grade support with guaranteed response times, dedicated account managers, and custom SLAs.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-slate-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            24/7 technical support
+                        </li>
+                        <li class="flex items-center text-sm text-slate-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            99.9% uptime guarantee
+                        </li>
+                        <li class="flex items-center text-sm text-slate-600">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Dedicated account manager
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Implementation Timeline -->
+            <div class="bg-white rounded-3xl p-8 shadow-strong border border-slate-100">
+                <h3 class="text-2xl font-bold text-center text-slate-900 mb-12">Implementation Timeline</h3>
+                <div class="relative">
+                    <div class="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-primary-200"></div>
+                    
+                    <div class="space-y-12">
+                        <!-- Week 1-2 -->
+                        <div class="relative flex items-center justify-between">
+                            <div class="flex-1 pr-8">
+                                <div class="bg-primary-50 rounded-2xl p-6 border border-primary-100">
+                                    <div class="text-lg font-bold text-primary-700 mb-2">Week 1-2: Setup & Integration</div>
+                                    <p class="text-slate-600">Infrastructure deployment, CI/CD integration, and team onboarding</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary-500 rounded-full border-4 border-white"></div>
+                            <div class="flex-1 pl-8"></div>
+                        </div>
+                        
+                        <!-- Week 3-4 -->
+                        <div class="relative flex items-center justify-between">
+                            <div class="flex-1 pr-8"></div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary-500 rounded-full border-4 border-white"></div>
+                            <div class="flex-1 pl-8">
+                                <div class="bg-primary-50 rounded-2xl p-6 border border-primary-100">
+                                    <div class="text-lg font-bold text-primary-700 mb-2">Week 3-4: Initial Testing</div>
+                                    <p class="text-slate-600">First automated test generation and validation with existing test suites</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Week 5-8 -->
+                        <div class="relative flex items-center justify-between">
+                            <div class="flex-1 pr-8">
+                                <div class="bg-green-50 rounded-2xl p-6 border border-green-100">
+                                    <div class="text-lg font-bold text-green-700 mb-2">Week 5-8: Full Deployment</div>
+                                    <p class="text-slate-600">Complete automation rollout across all applications and environments</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-white"></div>
+                            <div class="flex-1 pl-8"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="py-20 bg-gradient-secondary">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center rounded-full bg-purple-50 px-4 py-2 text-sm font-medium text-purple-700 mb-4 border border-purple-100">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                    Expert Implementation Team
+                </div>
+                <h2 class="text-4xl font-bold mb-6 text-slate-900">Why Choose Our Expertise</h2>
+                <p class="text-xl text-slate-600 max-w-4xl mx-auto">
+                    Our team combines deep AI/ML expertise with enterprise software quality experience to deliver implementations that actually work in production environments.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6">Proven Track Record</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-6m-8 0h2m0 0h6m-8 0V9a2 2 0 012-2h6a2 2 0 012 2v12"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-slate-900 mb-2">Enterprise AI Implementations</h4>
+                                <p class="text-slate-600">Over 50+ successful AI implementations in Fortune 500 companies across various industries including healthcare, finance, and manufacturing.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-slate-900 mb-2">Quality Assurance Expertise</h4>
+                                <p class="text-slate-600">Deep understanding of software testing methodologies, CI/CD pipelines, and quality processes built from years of consulting experience.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-slate-900 mb-2">Rapid Deployment</h4>
+                                <p class="text-slate-600">Proven methodologies for quick implementation and integration with existing systems, typically achieving ROI within 3-6 months.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-strong border border-slate-200">
+                    <h4 class="text-xl font-bold text-slate-900 mb-6">Our Team</h4>
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                                <span class="text-blue-600 font-bold text-lg">AI</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-slate-900">AI/ML Engineers</div>
+                                <div class="text-sm text-slate-600">PhD-level expertise in machine learning, computer vision, and natural language processing</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <span class="text-green-600 font-bold text-lg">QA</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-slate-900">QA Architects</div>
+                                <div class="text-sm text-slate-600">20+ years experience in enterprise quality assurance and testing frameworks</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                                <span class="text-purple-600 font-bold text-lg">SE</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-slate-900">Software Engineers</div>
+                                <div class="text-sm text-slate-600">Full-stack development with expertise in enterprise integration and scalability</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                                <span class="text-orange-600 font-bold text-lg">PM</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-slate-900">Project Managers</div>
+                                <div class="text-sm text-slate-600">Certified in enterprise project management with track record of on-time delivery</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications and Partnerships -->
+            <div class="bg-white rounded-2xl p-8 shadow-strong border border-slate-200">
+                <h3 class="text-2xl font-bold text-slate-900 text-center mb-8">Certifications & Partnerships</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <span class="text-blue-600 font-bold text-lg">AWS</span>
+                        </div>
+                        <div class="text-sm font-semibold text-slate-900">AWS Certified</div>
+                        <div class="text-xs text-slate-600">Solutions Architect</div>
+                    </div>
+                    <div>
+                        <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <span class="text-blue-600 font-bold text-lg">GCP</span>
+                        </div>
+                        <div class="text-sm font-semibold text-slate-900">Google Cloud</div>
+                        <div class="text-xs text-slate-600">Professional ML Engineer</div>
+                    </div>
+                    <div>
+                        <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <span class="text-green-600 font-bold text-lg">NV</span>
+                        </div>
+                        <div class="text-sm font-semibold text-slate-900">NVIDIA</div>
+                        <div class="text-xs text-slate-600">DGX Ready Partner</div>
+                    </div>
+                    <div>
+                        <div class="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <span class="text-red-600 font-bold text-lg">ISO</span>
+                        </div>
+                        <div class="text-sm font-semibold text-slate-900">ISO 27001</div>
+                        <div class="text-xs text-slate-600">Security Certified</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- White-Glove Enterprise Implementation Section -->
+    <section class="py-20 bg-blue-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 mb-4 border border-blue-200">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Implementation Excellence
+                </div>
+                <h2 class="text-4xl font-bold mb-6 text-slate-900">White-Glove Enterprise Implementation</h2>
+                <p class="text-xl text-slate-600 max-w-4xl mx-auto">
+                    We handle the complete implementation process from infrastructure setup to team training, ensuring seamless integration with your existing CI/CD workflows and maximum adoption across your organization.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white rounded-2xl p-8 shadow-soft border border-slate-100 card-hover">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-6m-8 0h2m0 0h6m-8 0V9a2 2 0 012-2h6a2 2 0 012 2v12"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Infrastructure Setup</h3>
+                    <p class="text-slate-600 mb-6">Complete hardware procurement, installation, and configuration of your on-premise GPU infrastructure.</p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Hardware specification & procurement
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Data center installation & setup
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Network configuration & security
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Performance optimization
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-soft border border-slate-100 card-hover">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Team Training & Support</h3>
+                    <p class="text-slate-600 mb-6">Comprehensive training programs to ensure your team can effectively use and maintain the AI QA system.</p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Technical training workshops
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Best practices documentation
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Ongoing mentorship program
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            24/7 technical support
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-soft border border-slate-100 card-hover">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Change Management</h3>
+                    <p class="text-slate-600 mb-6">Strategic approach to organizational change ensuring smooth adoption and maximum ROI from your AI QA investment.</p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Stakeholder alignment sessions
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Process optimization consulting
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Adoption metrics & tracking
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Continuous improvement programs
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 gradient-primary">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <h2 class="text-4xl font-bold mb-6">Ready to Transform Your QA Process?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+                Join leading enterprises already saving millions with AI-powered QA automation and predictable CAPEX infrastructure.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button class="bg-white text-primary-600 px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-slate-50 transition-colors inline-flex items-center shadow-strong">
+                    Discovery Call
+                    <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white/10 transition-colors inline-flex items-center">
+                    <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                    View Case Studies
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">AI</span>
+                        </div>
+                        <span class="text-xl font-bold">QA Framework</span>
+                    </div>
+                    <p class="text-slate-400 text-sm">
+                        Enterprise AI-powered QA automation that transforms software testing with predictable costs and unlimited scale.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Enterprise</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Security</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">API Reference</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Case Studies</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 mt-12 pt-8 text-center text-sm text-slate-400">
+                <p>&copy; 2024 Quality ML Framework. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
